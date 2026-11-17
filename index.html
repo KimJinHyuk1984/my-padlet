@@ -89,6 +89,28 @@
     }
     h1 span { display: block; }
     .intro { max-width: 600px; margin: 22px 0 0; color: var(--muted); line-height: 1.95; }
+    .lecture-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      max-width: 100%;
+      min-height: 48px;
+      margin-top: 24px;
+      padding: 12px 18px;
+      border: 1px solid var(--green);
+      border-radius: 9px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
+      text-decoration: none;
+      touch-action: manipulation;
+      transition: background .2s ease, border-color .2s ease;
+    }
+    .lecture-download svg { width: 19px; height: 19px; flex-shrink: 0; }
+    .download-format { padding: 1px 6px; border: 1px solid #ffffff55; border-radius: 4px; font-size: 10px; font-weight: 600; letter-spacing: .04em; }
     .hero-art { position: relative; height: 210px; user-select: none; }
     .hero-art::before { content: ""; position: absolute; inset: 14px 7px; border-radius: 50%; background: #e7eadd; }
     .paper {
@@ -148,6 +170,7 @@
     .site-footer { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-block: 20px 27px; color: var(--muted); font-size: 11px; }
     .site-footer p { margin: 0; }
     @media (hover: hover) {
+      .lecture-download:hover { background: var(--ink); border-color: var(--ink); }
       .archive-card:hover { transform: translateY(-4px); border-color: #8ea387; box-shadow: 0 14px 34px #203e3010; }
       .archive-card:hover .arrow { transform: translateX(4px); }
     }
@@ -175,7 +198,7 @@
       .card-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .archive-card, .arrow { transition: none; }
+      .archive-card, .arrow, .lecture-download { transition: none; }
       .archive-card:hover, .archive-card:hover .arrow { transform: none; }
     }
   </style>
@@ -198,6 +221,12 @@
           <p class="eyebrow">아이디어에서 우리 반의 공간으로</p>
           <h1 id="page-title"><span>나만의 패들렛</span><span>만들기.</span></h1>
           <p class="intro">수업의 작은 아이디어가 하나의 게시판이 되기까지.<br>기획부터 구현과 개선까지, AI와 나눈 대화와 프롬프트를 만나보세요.</p>
+          <!-- 강의자료 PDF를 lecture.pdf라는 이름으로 이 파일과 같은 폴더에 올려주세요. -->
+          <a class="lecture-download" href="./lecture.pdf" download="lecture.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5"/></svg>
+            <span>강의자료 다운로드</span>
+            <span class="download-format">PDF</span>
+          </a>
         </div>
         <div class="hero-art" aria-hidden="true">
           <div class="paper paper-back">
